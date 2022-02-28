@@ -1,0 +1,10 @@
+name: express deploy
+on: push
+      
+jobs:
+  deploy-to-gcp:
+    uses: octademo/deployment-workflows/.github/workflows/express_gcp_deploy.yml@main
+    with:
+      workload_identity_provider: ${{github.event.inputs.workload_identity_provider}}
+      service_account: ${{github.event.inputs.service_account}}
+      audience: ${{github.event.inputs.audience}}
